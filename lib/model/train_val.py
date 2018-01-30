@@ -106,7 +106,7 @@ class SolverWrapper(object):
     try:
       reader = pywrap_tensorflow.NewCheckpointReader(file_name)
       var_to_shape_map = reader.get_variable_to_shape_map()
-      return var_to_shape_map 
+      return var_to_shape_map
     except Exception as e:  # pylint: disable=broad-except
       print(str(e))
       if "corrupted compressed block contents" in str(e):
@@ -159,7 +159,7 @@ class SolverWrapper(object):
     # Get the snapshot name in TensorFlow
     redfiles = []
     for stepsize in cfg.TRAIN.STEPSIZE:
-      redfiles.append(os.path.join(self.output_dir, 
+      redfiles.append(os.path.join(self.output_dir,
                       cfg.TRAIN.SNAPSHOT_PREFIX + '_iter_{:d}.ckpt.meta'.format(stepsize+1)))
     sfiles = [ss.replace('.meta', '') for ss in sfiles if ss not in redfiles]
 
@@ -254,8 +254,8 @@ class SolverWrapper(object):
     if lsf == 0:
       rate, last_snapshot_iter, stepsizes, np_paths, ss_paths = self.initialize(sess)
     else:
-      rate, last_snapshot_iter, stepsizes, np_paths, ss_paths = self.restore(sess, 
-                                                                            str(sfiles[-1]), 
+      rate, last_snapshot_iter, stepsizes, np_paths, ss_paths = self.restore(sess,
+                                                                            str(sfiles[-1]),
                                                                             str(nfiles[-1]))
     timer = Timer()
     iter = last_snapshot_iter + 1

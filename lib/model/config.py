@@ -39,7 +39,7 @@ __C.TRAIN.DISPLAY = 10
 # Whether to double the learning rate for bias
 __C.TRAIN.DOUBLE_BIAS = True
 
-# Whether to initialize the weights with truncated normal distribution 
+# Whether to initialize the weights with truncated normal distribution
 __C.TRAIN.TRUNCATED = False
 
 # Whether to have weight decay on bias as well
@@ -155,7 +155,7 @@ __C.TRAIN.RPN_BBOX_INSIDE_WEIGHTS = (1.0, 1.0, 1.0, 1.0)
 # Set to -1.0 to use uniform example weighting
 __C.TRAIN.RPN_POSITIVE_WEIGHT = -1.0
 
-# Whether to use all ground truth bounding boxes for training, 
+# Whether to use all ground truth bounding boxes for training,
 # For COCO, setting USE_ALL_GT to False will exclude boxes that are flagged as ''iscrowd''
 __C.TRAIN.USE_ALL_GT = True
 
@@ -189,13 +189,13 @@ __C.TEST.HAS_RPN = False
 __C.TEST.PROPOSAL_METHOD = 'gt'
 
 ## NMS threshold used on RPN proposals
-__C.TEST.RPN_NMS_THRESH = 0.7
+__C.TEST.RPN_NMS_THRESH = 0.3
 
 # Number of top scoring boxes to keep before apply NMS to RPN proposals
 __C.TEST.RPN_PRE_NMS_TOP_N = 6000
 
 # Number of top scoring boxes to keep after applying NMS to RPN proposals
-__C.TEST.RPN_POST_NMS_TOP_N = 300
+__C.TEST.RPN_POST_NMS_TOP_N = 2000
 
 # Proposal height and width both need to be greater than RPN_MIN_SIZE (at orig image scale)
 # __C.TEST.RPN_MIN_SIZE = 16
@@ -205,7 +205,7 @@ __C.TEST.RPN_POST_NMS_TOP_N = 300
 __C.TEST.MODE = 'nms'
 
 # Only useful when TEST.MODE is 'top', specifies the number of top proposals to select
-__C.TEST.RPN_TOP_N = 5000
+__C.TEST.RPN_TOP_N = 2000
 
 #
 # ResNet options
@@ -213,8 +213,8 @@ __C.TEST.RPN_TOP_N = 5000
 
 __C.RESNET = edict()
 
-# Option to set if max-pooling is appended after crop_and_resize. 
-# if true, the region will be resized to a square of 2xPOOLING_SIZE, 
+# Option to set if max-pooling is appended after crop_and_resize.
+# if true, the region will be resized to a square of 2xPOOLING_SIZE,
 # then 2x2 max-pooling is applied; otherwise the region will be directly
 # resized to a square of POOLING_SIZE
 __C.RESNET.MAX_POOL = False
